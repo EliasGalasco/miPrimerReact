@@ -1,21 +1,31 @@
-import React from 'react'
-import Button from 'react-bootstrap/Button';
-import Card from 'react-bootstrap/Card';
+import React, { useState, useEffect } from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import getItems from '../productos/ProductosAssync';
+import EstructureCard from "../estructureCard/EstructureCard";
 
-function itemListConatainer({title, precio, detalle, img}) {
+function itemListConatainer() {
+    const [products, setProducts] = useState([]);
+    
+    useEffect(() => {
+        getItems().then((respuesta) => {
+        setProducts(respuesta);
+        });
+    }, [])
+    
     return (
-        <div className='container Cards p-9'>
-        <Card style={{ width: '18rem' }}>
-            <Card.Img variant="top" src={img}/>
-            <Card.Body>
-                <Card.Title>{title}</Card.Title>
-                <Card.Text>{detalle}</Card.Text>
-                <Card.Text>{precio}</Card.Text>
-                <Button variant="primary">Go somewhere</Button>
-            </Card.Body>
-        </Card>
-        </div>
+        <div className='row d-inline-flex justify-content-center'>
+            {getItems.map((prod)=>(
+                <EstructureCard
+                key={prod.id}
+                id={prod.id}
+                titulo={prod.titulo}
+                detalle={prod.detalle}
+                imagen={prod.imagen}
+                precio={prod.precio}
+                stock={prod.stock}
+            />
+        ))}
+    </div>
     );
 }
 

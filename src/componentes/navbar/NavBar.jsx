@@ -1,9 +1,7 @@
-import Container from "react-bootstrap/Container";
-import Navbar from "react-bootstrap/Navbar";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCoffee, faCartShopping } from '@fortawesome/free-solid-svg-icons'
-
+import { faCartShopping } from '@fortawesome/free-solid-svg-icons'
+import { Link, NavLink } from "react-router-dom";
 
 function NavBar() {
 return (
@@ -13,33 +11,33 @@ return (
                 <div className="container-fluid navbar-padre">
                     <nav className="navbar navbar-light">
                         <div className="container-fluid">
-                            <a className="navbar-brand" href="#">
+                            <Link className="navbar-brand" to="/">
                                 <img src="./imagenes/logo-removebg-preview.png" alt="" width="90" height="80"
                                     className="d-inline-block align-text-center"/>
                                 Natural Shine
-                            </a>
+                            </Link>
                         </div>
                     </nav>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse"
                         data-bs-target="#collapsibleNavbar">
                         <span className="navbar-toggler-icon"></span>
                     </button>
-                    <div className="collapse navbar-collapse navbar-list" id="collapsibleNavbar">
+                    <div className="navbar-list" id="collapsibleNavbar">
                         <ul className="navbar-nav">
                             <li className="nav-item">
-                                <a className="nav-link" href="#">Promos</a>
+                                <NavLink className="nav-link" to="/">inicio</NavLink>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link" href="#">Tienda</a>
+                                <NavLink className="nav-link" to="/promos">Promos</NavLink>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link" href="#">HotWeek</a>
+                                <NavLink className="nav-link" to="/maquillaje">Maquillajes</NavLink>
                             </li>
                         </ul>
                     </div>
-                    <a className="" href="#">
+                    <Link className="" to="/carrito">
                     <FontAwesomeIcon className='w-16' icon={faCartShopping} />
-                    </a>
+                    </Link>
                 </div>
             </nav>
     </div>

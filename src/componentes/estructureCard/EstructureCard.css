@@ -1,0 +1,78 @@
+/*------Cards config general shop-------*/
+
+.card-img-top {
+    height: 350px;
+}
+
+.card-img-top:hover {
+    transform: scale(1.05);
+    transition: all 0.7s;
+    overflow: hidden;
+    filter: brightness(1.1);
+}
+
+.cards {
+    display: flex;
+    width: 100%;
+    margin: 0 auto;
+}
+.cards:hover {
+    transform: scale(1.05);
+    transition: all 0.7s;
+    overflow: hidden;
+}
+
+.card-text {
+    font-size: 20px;
+    text-align: center;
+}
+/*------price config shop-------*/
+
+.precios{
+        display: flex;
+        margin: 10px auto;
+        justify-content: space-between;
+}
+.precio {
+    flex-wrap: nowrap;
+    font-size: 20px;
+    font-weight: bolder;
+    text-align: start;
+}
+/*------stock config shop-------*/
+
+.stock{
+    flex-wrap: nowrap;
+        font-size: 14px;
+        font-weight: 600;
+        text-align: right;
+}
+.green{
+    color: greenyellow;
+}
+/*------Boton config shop-------*/
+.btn {
+    display: block;
+    padding: 10px 20px;
+    color: white;
+    font-size: 12px;
+    text-align: center;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border-radius: 50px;
+    background-color: #232f3d;
+    transition: ease all .3s;
+    cursor: pointer;
+    align-items: center;
+    margin-left: 29px;
+}
+
+.btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 10px 0 #121618;
+}
+.btnDetalle{
+    background-color: rgb(161, 154, 154);
+    padding: 5px 40px;
+
+}
