@@ -169,11 +169,13 @@ function getItems() {
   });
 }
 
-  export function getSingleItem(itemid) {
-    let itemRes = Productos.find((item)=>{
-      return item.id === Number(itemid);
-    })
-  };
+export function getSingleItem(itemid) {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve(Productos[0]);
+    }, 2000);
+  });
+}
 
 
 export default getItems;
