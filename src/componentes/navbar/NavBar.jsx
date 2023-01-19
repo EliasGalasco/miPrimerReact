@@ -12,7 +12,7 @@ return (
                     <nav className="navbar navbar-light">
                         <div className="container-fluid">
                             <Link className="navbar-brand" to="/">
-                                <img src="./imagenes/logo-removebg-preview.png" alt="" width="90" height="80"
+                                <img src="../imagenes/logo-removebg-preview.png" alt="" width="90" height="80"
                                     className="d-inline-block align-text-center"/>
                                 Natural Shine
                             </Link>
@@ -28,10 +28,10 @@ return (
                                 <NavLink className="nav-link" to="/">inicio</NavLink>
                             </li>
                             <li className="nav-item">
-                                <NavLink className="nav-link" to="/promos">Promos</NavLink>
+                                <NavLink className="nav-link" to="/category/liquidos">Refrescos</NavLink>
                             </li>
                             <li className="nav-item">
-                                <NavLink className="nav-link" to="/maquillaje">Maquillajes</NavLink>
+                                <NavLink className="nav-link" to="/category/polvo">Suplementos</NavLink>
                             </li>
                         </ul>
                     </div>

@@ -15,7 +15,7 @@ return (
             <div className="box">
                 <figure>
                     <a href="#">
-                        <img src="./imagenes/logo-removebg-preview.png" alt="Logo de NaturalShine"/>
+                        <img src="../imagenes/logo-removebg-preview.png" alt="Logo de NaturalShine"/>
                     </a>
                 </figure>
             </div>

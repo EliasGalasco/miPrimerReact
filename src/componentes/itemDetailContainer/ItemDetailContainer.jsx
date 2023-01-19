@@ -6,13 +6,14 @@ import { getSingleItem } from '../asyncmocks/ProductosAssync';
 import { FaCircle } from "react-icons/fa";
 import Button from 'react-bootstrap/Button';
 import { useParams } from "react-router-dom";
+import "../itemDetailContainer/itemDetailContainer.css"
 
 
 
 
 function ItemDetailContainer() {
   
-  const [productos, setProduct] = useState([]);
+  const [productos, setProduct] = useState({});
 
   let { itemid } = useParams();
 
@@ -24,8 +25,8 @@ function ItemDetailContainer() {
   }, []);
 
   return (
-    <Card className='col-12 cards col-md-6 col-lg-6 col-xl-4 m-1' style={{ width: '18rem' }}>
-          <Card.Img variant="top" className='h-5 img-fluid' src={productos.imagen} />
+    <Card className='ItemDetail d-flex justify-content-center cards'>
+          <Card.Img variant="top" className='h-5 imgDetail d-flex justify-content-center' src={productos.imagen} />
           <Card.Body>
             <Card.Title>{productos.titulo}</Card.Title>
             <Card.Text className='detalle'>
@@ -37,7 +38,7 @@ function ItemDetailContainer() {
               <p className='stock'><FaCircle className='green'/> {productos.stock}</p>
             </div>
             </div>
-            <Button id={productos.id} >Agregar al Carro</Button>
+            <Button className="d-flex align-items-center" id={productos.id} >Agregar al Carro</Button>
           </Card.Body>
         </Card>
   );
