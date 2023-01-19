@@ -6,7 +6,7 @@ import ItemListContainer from "./componentes/itemslistcontainer/ItemListContaine
 import Footer from "./componentes/Footer/Footer";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ItemDetailContainer from "./componentes/itemDetailContainer/ItemDetailContainer";
-
+import NotFoundPage from "./Page/NotFoundPage";
 
 function App() {
   return (
@@ -16,7 +16,7 @@ function App() {
           <Route path="/" element={<ItemListContainer/>} />
           <Route path="/category/:categoryid" element={<ItemListContainer/>} />
           <Route path="/item/:itemid" element={<ItemDetailContainer/>} />
-          <Route path="*" element={<h1>404. Page not found</h1>}/>
+          <Route path="*" element={<NotFoundPage/>}/>
         </Routes>
         <Footer/>
     </BrowserRouter>

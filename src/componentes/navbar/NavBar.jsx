@@ -28,7 +28,7 @@ return (
                                 <NavLink className="nav-link" to="/">inicio</NavLink>
                             </li>
                             <li className="nav-item">
-                                <NavLink className="nav-link" to="/category/liquidos">Refrescos</NavLink>
+                                <NavLink className="nav-link" to="/category/bebibles">Refrescos</NavLink>
                             </li>
                             <li className="nav-item">
                                 <NavLink className="nav-link" to="/category/polvo">Suplementos</NavLink>

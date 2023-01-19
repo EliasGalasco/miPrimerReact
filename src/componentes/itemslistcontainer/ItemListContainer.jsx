@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import getItems, {getCategoryId} from '../asyncmocks/ProductosAssync';
 import ItemList from "../ItemList/ItemList";
+import { useParams } from "react-router-dom";
+
 
 function ItemListConatainer() {
 
