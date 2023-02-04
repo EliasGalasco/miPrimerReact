@@ -24,7 +24,6 @@ function EstructureCard({id, titulo, detalle, imagen, precio, stock}) {
               <p className='stock'><FaCircle className='green'/> {stock}</p>
             </div>
             </div>
-            <Button id={id} >Agregar al Carro</Button>
           </Card.Body>
         </Card>
       );

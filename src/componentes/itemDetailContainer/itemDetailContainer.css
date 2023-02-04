@@ -5,6 +5,17 @@
     width: 900px;
 }
 .imgDetail{
-    width: 900px;
+    width: auto;
     height: 500px;
+    display: inline-block;
+}
+.cardDetail:hover{
+    transform:  none;
+    transition: none;
+}
+.carrito{
+    color: rgb(68, 68, 156);
+}
+.detalle{
+    height: 120px;
 }
