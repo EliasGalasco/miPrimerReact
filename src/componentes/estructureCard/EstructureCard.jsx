@@ -7,7 +7,7 @@ import { FaCircle } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 
 
-function EstructureCard({id, titulo, detalle, imagen, precio, stock}) {
+function EstructureCard({id, titulo, detalle, imagen, precio, stock, discount}) {
   const urlDetail = `/item/${id}`;
     return (
         <Card className='col-12 cards col-md-6 col-lg-6 col-xl-4 m-1 ' style={{ width: '18rem' }}>
@@ -19,10 +19,22 @@ function EstructureCard({id, titulo, detalle, imagen, precio, stock}) {
             </Card.Text>
             <Link to={urlDetail}><Button className='btnDetalle' id={id} >Ver Detalle</Button></Link>
             <div className='precios'>
-            <p className='precio'>{precio}</p>
             <div>
-              <p className='stock'><FaCircle className='green'/> {stock}</p>
+            { discount &&
+            <span style={{color: "#43c745"}}>Desc: {discount}%</span>
+            }
+              {
+                stock? <p className='stock'><FaCircle className='green'/> {stock}</p>
+                :
+                <p className='stock'><FaCircle className='red'/> Sin Stock</p>
+              }
             </div>
+            {
+              discount?
+              <p className='precio'><del>{precio}</del> <br /> {precio-precio*discount}</p>
+              :
+              <p className='precio'>{precio}</p>
+            }
             </div>
           </Card.Body>
         </Card>

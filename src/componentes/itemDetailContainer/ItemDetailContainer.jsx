@@ -8,6 +8,7 @@ import { useParams } from "react-router-dom";
 import ItemCount from "../itemCount/ItemCount";
 import "../itemDetailContainer/itemDetailContainer.css"
 import { cartContext } from "../../storage/cartContext";
+import { HeadBodyGrid } from "../Loader/Loader";
 
 
 
@@ -15,6 +16,7 @@ import { cartContext } from "../../storage/cartContext";
 function ItemDetailContainer() {
   
   const [productos, setProduct] = useState([]);
+  const [loading, setLoading] = useState(true)
   /*----------useParams--------- */
   let { itemid } = useParams();
 
@@ -31,14 +33,15 @@ function ItemDetailContainer() {
     addItem(productos)
   }
 
-
-
   useEffect(() => {
     getSingleItem(itemid).then((respuesta) => {
         setProduct(respuesta);
       })
-      .catch((error) => alert(`Error: ${error}`));
-  }, []);
+      .finally(() =>{setLoading(false)} )
+  }, [itemid]);
+  if(loading){
+    return <HeadBodyGrid/>
+  }
 
   return (
     <Card className='ItemDetail cardsDetail d-flex justify-content-center cards'>

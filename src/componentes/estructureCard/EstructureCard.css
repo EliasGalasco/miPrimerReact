@@ -50,6 +50,9 @@
 .green{
     color: greenyellow;
 }
+.red{
+    color: rgb(255, 0, 0);
+}
 /*------Boton config shop-------*/
 .btn {
     display: block;

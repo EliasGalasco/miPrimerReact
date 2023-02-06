@@ -14,6 +14,7 @@ const ItemList = (props) => {
                 imagen={producto.imagen}
                 precio={producto.precio}
                 stock={producto.stock}
+                discount={producto.discount}
             />
         ))}
     </div>

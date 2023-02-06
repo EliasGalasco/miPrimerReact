@@ -1,4 +1,3 @@
-import React from 'react'
 
 const Productos = [{
   "id": 1,
@@ -6,8 +5,9 @@ const Productos = [{
   "apellido": "Cathcart",
   "detalle": "Removal of remaining testis",
   "precio": "$5612.42",
+  "discount": 20,
   "category": "bebibles",
-  "stock": "En stock",
+  "stock": "",
   "imagen": "https://dnp4fok4drjmm.cloudfront.net/pages/altagama/125_cbb0dc82c1a72fc599396a6fd87f54ee.jpg"
 }, {
   "id": 2,
@@ -26,6 +26,7 @@ const Productos = [{
   "stock": "En stock",
   "category": "polvo",
   "precio": "$4825.52",
+  "discount": 30,
   "imagen": "https://dnp4fok4drjmm.cloudfront.net/pages/altagama/125_d7c8f7e99d47608f4b9cfe984727d2c7.jpg"
 }, {
   "id": 4,
@@ -35,13 +36,14 @@ const Productos = [{
   "stock": "En stock",
   "category": "polvo",
   "precio": "$4618.68",
+  "discount": 10,
   "imagen": "https://dnp4fok4drjmm.cloudfront.net/pages/altagama/125_1d2e51494cfccd549cb536b925047e98.jpg"
 }, {
   "id": 5,
   "nombre": "Tomasine",
   "apellido": "Crowdson",
   "detalle": "Gastroscopy through artificial stoma",
-  "stock": "En stock",
+  "stock": "",
   "category": "bebibles",
   "precio": "$5573.22",
   "imagen": "https://dnp4fok4drjmm.cloudfront.net/pages/altagama/125_9a0e89f6207f4d6af7554b9030892583.jpg"
@@ -52,6 +54,7 @@ const Productos = [{
   "detalle": "Intravenous pyelogram",
   "stock": "En stock",
   "category": "bebibles",
+  "discount": 25,
   "precio": "$4857.43",
   "imagen": "https://dnp4fok4drjmm.cloudfront.net/pages/altagama/125_6cce6aec908b70fbb57ff9ad8c106a7f.jpg"
 }, {
@@ -59,7 +62,7 @@ const Productos = [{
   "nombre": "Philip",
   "apellido": "Scoggin",
   "detalle": "Permanent colostomy",
-  "stock": "En stock",
+  "stock": "",
   "category": "polvo",
   "precio": "$5687.94",
   "imagen": "https://dnp4fok4drjmm.cloudfront.net/pages/altagama/125_9c60242e9cbedab13b01b808703cb5c5.jpg"
@@ -70,6 +73,7 @@ const Productos = [{
   "detalle": "Ventricular shunt to structure in head and neck",
   "stock": "En stock",
   "category": "bebibles",
+  "discount": 30,
   "precio": "$5285.14",
   "imagen": "https://dnp4fok4drjmm.cloudfront.net/pages/altagama/125_dd8b296ceabf8b015cd9463906395e11.jpg"
 }, {
@@ -106,6 +110,7 @@ const Productos = [{
   "detalle": "Other operations on cranial and peripheral nerves",
   "stock": "En stock",
   "category": "polvo",
+  "discount": 25,
   "precio": "$4589.93",
   "imagen": "https://dnp4fok4drjmm.cloudfront.net/pages/altagama/125_2b5a91e7dd0f39e9032b6a280f3e13f1.jpg"
 }, {

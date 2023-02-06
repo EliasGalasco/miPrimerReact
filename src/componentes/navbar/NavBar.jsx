@@ -44,7 +44,7 @@ return (
                     <UserMenu/>
                     <Link className="carrito" to="/carrito" >
                     <FontAwesomeIcon className='w-16' icon={faCartShopping} />
-                    {totalItems()}
+                    {totalItems(0)}
                     </Link>
                 </div>
             </nav>
