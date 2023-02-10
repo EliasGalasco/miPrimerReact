@@ -7,7 +7,7 @@ import { FaCircle } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 
 
-function EstructureCard({id, titulo, detalle, imagen, precio, stock, discount}) {
+function EstructureCard({id, titulo, detalle, imagen, precio, stock, discount, cantidad}) {
   const urlDetail = `/item/${id}`;
     return (
         <Card className='col-12 cards col-md-6 col-lg-6 col-xl-4 m-1 ' style={{ width: '18rem' }}>

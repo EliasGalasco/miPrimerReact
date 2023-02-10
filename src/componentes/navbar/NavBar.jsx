@@ -1,15 +1,11 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCartShopping } from '@fortawesome/free-solid-svg-icons'
 import { Link, NavLink } from "react-router-dom";
 import UserMenu from './UserMenu';
-import { useContext } from 'react';
-import { cartContext } from '../../storage/cartContext';
+import CartWidget from '../cartWidget/CartWidget';
 
 /*Llamar funcion total items con useContext  */
 
 function NavBar() {
-    const {totalItems} = useContext(cartContext)
 return (
     <>
     <div className="bg-nav sticky-top">
@@ -42,9 +38,8 @@ return (
                         </ul>
                     </div>
                     <UserMenu/>
-                    <Link className="carrito" to="/carrito" >
-                    <FontAwesomeIcon className='w-16' icon={faCartShopping} />
-                    {totalItems(0)}
+                    <Link className="carrito" to="/cart" >
+                    <CartWidget/> 
                     </Link>
                 </div>
             </nav>

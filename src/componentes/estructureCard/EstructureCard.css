@@ -79,3 +79,16 @@
     padding: 5px 40px;
 
 }
+.Btn-irCarrito{
+    margin: 0px;
+    margin-left: 178px!important;
+}
+.imgCart{
+    height: 100px!important;
+    margin: 5px;
+}
+.btnEliminar{
+    height: 50px;
+    margin-top: 0px;
+    margin-left: 20px;
+}

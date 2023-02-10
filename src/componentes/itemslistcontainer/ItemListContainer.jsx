@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import getItems, {getCategoryId} from '../asyncmocks/ProductosAssync';
+import {getCategoryId} from '../../services/firebase';
+import {getItems} from '../../services/firebase';
 import ItemList from "../ItemList/ItemList";
 import { useParams } from "react-router-dom";
 import Loader from "../Loader/Loader";
@@ -19,7 +20,7 @@ function ItemListConatainer() {
                 let respuesta = await getItems();
                 setProducts(respuesta);
             } catch (error) {
-                setProducts(`Se produjo un error inesperado, recargue`);
+                setProducts(`Se produjo un error inesperado, refresque la pagina`);
             } finally {
                 setIsLoading(false);
             }

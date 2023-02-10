@@ -2,13 +2,15 @@ import React, { useState, useEffect, useContext } from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Card from 'react-bootstrap/Card';
 import "../estructureCard/EstructureCard.css"
-import { getSingleItem } from '../asyncmocks/ProductosAssync';
+import { getSingleItem } from '../../services/firebase';
 import { FaCircle } from "react-icons/fa";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import ItemCount from "../itemCount/ItemCount";
 import "../itemDetailContainer/itemDetailContainer.css"
 import { cartContext } from "../../storage/cartContext";
 import { HeadBodyGrid } from "../Loader/Loader";
+import { Button } from "react-bootstrap";
+import Swal from "sweetalert2";
 
 
 
@@ -17,6 +19,8 @@ function ItemDetailContainer() {
   
   const [productos, setProduct] = useState([]);
   const [loading, setLoading] = useState(true)
+  const [isInCart, setIsInCart] = useState(false)
+
   /*----------useParams--------- */
   let { itemid } = useParams();
 
@@ -26,10 +30,19 @@ function ItemDetailContainer() {
   /*----2 Funcion agregar al Carrito----- */
   /*(1)Llamamos a addItem con useContext y le pasamos como parametro el cartContext */
   const { addItem } = useContext(cartContext)
-
+  
   function agregarAlCarro(count){
+    /*Creamos un useState setIsInCart */
+    setIsInCart(true);
     /*(2)llamamos al useContext y le pasamos el producto*/
-    productos.count = count
+    Swal.fire({
+      position: 'center',
+      icon: 'success',
+      title: 'Tu item ha sido Agregado con exito!',
+      showConfirmButton: false,
+      timer: 1500
+    })
+    productos.count = count;
     addItem(productos)
   }
 
@@ -39,6 +52,7 @@ function ItemDetailContainer() {
       })
       .finally(() =>{setLoading(false)} )
   }, [itemid]);
+
   if(loading){
     return <HeadBodyGrid/>
   }
@@ -54,12 +68,27 @@ function ItemDetailContainer() {
             <div className='precios'>
             <p className='precio'>{productos.precio}</p>
             <div>
-              <p className='stock'><FaCircle className='green'/> {productos.stock}</p>
+            {
+                productos.stock? <p className='stock'><FaCircle className='green'/> {productos.stock}</p>
+                :
+                <p className='stock'><FaCircle className='red'/> Sin Stock</p>
+              }
             </div>
             </div>
-            {/* <Button className="d-flex align-items-center" id={productos.id} >Agregar al Carro</Button> */}
+            {
+              isInCart?
+              <div className="d-flex justify-content-center">         
+              <Link to="/cart">
+              <Button  id={productos.id} >ir al Carrito</Button>
+              </Link>
+              <Link to='/'>
+              <Button >Seguir Comprando</Button>
+              </Link>
+              </div> 
+              :
+              <ItemCount onAddtoCart={agregarAlCarro}/>
+            }
           </Card.Body>
-          <ItemCount onAddtoCart={agregarAlCarro}/>
         </Card>
   );
 }

@@ -19,3 +19,9 @@
 .detalle{
     height: 120px;
 }
+.Btn-irCarrito{
+    padding: 5px;
+    font-size: 15px;
+    font-weight: lighter;
+    margin-left: 5px;
+}
