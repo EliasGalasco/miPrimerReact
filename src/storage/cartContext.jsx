@@ -6,7 +6,11 @@ export const cartContext = createContext();
 
 /*2 Crear Provider custom */
 export function CartContextProvider(props){
-    let [cart, setCart,] = useState([])
+    let [cart, setCart] = useState([])
+    let [discount, setDiscount] = useState(0);
+    let [total, setTotal] = useState(0);
+
+
 
 
     /*--1 FUNCION AGREGAR AL CARRO--*/
@@ -42,10 +46,18 @@ export function CartContextProvider(props){
     let total = cart.reduce((contador, producto) => contador + producto.count, 0);
     return total;
     }
-
+    /*Precio total */
+    function precioTotal() {
+        let resultado = cart.reduce((total, item) => total += (item.count * item.precio), 0);
+        resultado = resultado - (resultado * discount / 100);
+        return resultado;
+    }
+    
+    
+        
     return (
     /*3 Aplicamos el custom provider */
-    <cartContext.Provider value={{cart, addItem, totalItems, clearCart, removeItem}}>
+    <cartContext.Provider value={{cart, addItem, totalItems, clearCart, removeItem, precioTotal}}>
         {props.children}
     </cartContext.Provider>
     )

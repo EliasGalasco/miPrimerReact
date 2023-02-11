@@ -92,3 +92,6 @@
     margin-top: 0px;
     margin-left: 20px;
 }
+.disabled{
+    display: none;
+}

@@ -9,7 +9,7 @@ import { creadorOrdenDeCompra } from "../../services/firebase";
 import Swal from "sweetalert2";
 
 function CartContainer() {
-  const { cart, removeItem, totalItems, clearCart } = useContext(cartContext);
+  const { cart, removeItem, precioTotal, clearCart} = useContext(cartContext);
 
   async function finalizarCompra(e) {
     const items = cart.map((productos) => ({
@@ -24,7 +24,7 @@ function CartContainer() {
       buyer: {},
       items: cart,
       date: new Date(),
-      total: "",
+      total: {precioTotal},
     };
     //2Subir a la dataBase
     let idCompra = await creadorOrdenDeCompra(order);
@@ -75,12 +75,16 @@ function CartContainer() {
     return (
       <>
         <h1 className="d-flex justify-content-center">Tieda Natural Shine</h1>
-        <hr className="container" />
-        <div className="d-flex justify-content-around">
-          <h3>Mi Carrito</h3>
+        <div className="d-flex container justify-content-end">
           <Link to="/">
             <Button>Seguir Comprando</Button>
           </Link>
+        </div>
+        <hr className="container" />
+        <div className="d-flex justify-content-evenly">
+          <h3>Mi Carrito</h3>
+          <p className="fw-bold">Precio c/u</p>
+          <p className="fw-bold">Suma del producto</p>
         </div>
         <hr className="container" />
         {cart.map((item) => (
@@ -106,7 +110,17 @@ function CartContainer() {
               <hr />
             </div>
             <div className="d-flex align-items-center">
-              {item.precio}
+            {
+              item.discount?
+              <p className='precio'><del>{Math.round(item.precio + ((item.precio * item.discount)/100))}</del><br /> {Math.round(item.precio)} </p>
+              :
+              <p className='precio'>{item.precio}</p>
+            }
+              </div>
+            <div className="d-flex align-items-center">
+              {
+                
+              }
               <Button
                 className="btnEliminar"
                 onClick={() => removeItem(item.id)}
@@ -117,10 +131,11 @@ function CartContainer() {
           </div>
         ))}
         <hr className="container" />
-        <div className="d-flex justify-content-center">
+        <div className="d-flex justify-content-around">
         <Button className="" onClick={finalizarCompra}>
           Finalizar Compra
         </Button>
+        {Math.round(precioTotal())}
         </div>
       </>
     );

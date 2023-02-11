@@ -66,7 +66,12 @@ function ItemDetailContainer() {
               {productos.detalle}
             </Card.Text>
             <div className='precios'>
-            <p className='precio'>{productos.precio}</p>
+            {
+              productos.discount?
+              <p className='precio'><del>{Math.round(productos.precio + ((productos.precio * productos.discount)/100))}</del><br /> {Math.round(productos.precio)} </p>
+              :
+              <p className='precio'>{productos.precio}</p>
+            }
             <div>
             {
                 productos.stock? <p className='stock'><FaCircle className='green'/> {productos.stock}</p>
