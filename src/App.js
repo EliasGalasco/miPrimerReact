@@ -10,13 +10,13 @@ import NotFoundPage from "./Page/NotFoundPage";
 import { UserContextProvider } from "./storage/userContext";
 import {CartContextProvider} from './storage/cartContext'
 import CartContainer from "./componentes/cartContainer/CartContainer";
-import { exportProds } from "./services/firebase";
+import { exportDataWithBatch, exportProds } from "./services/firebase";
 
 function App() {
   return (
     /*4 Colocar Provider personalizado */
     <CartContextProvider>
-      {/* <button onClick={exportProds}>Exportar</button>  */}
+        {/* <button onClick={exportDataWithBatch}>Exportar</button>    */}
       <UserContextProvider>
         <BrowserRouter>
           <NavBar/>

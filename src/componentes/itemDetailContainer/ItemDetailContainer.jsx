@@ -17,15 +17,24 @@ import Swal from "sweetalert2";
 
 function ItemDetailContainer() {
   
-  const [productos, setProduct] = useState([]);
+  const [productos, setProduct] = useState({});
   const [loading, setLoading] = useState(true)
   const [isInCart, setIsInCart] = useState(false)
+
 
   /*----------useParams--------- */
   let { itemid } = useParams();
 
   /*-------useContext----------- */
   const {cart} = useContext(cartContext);
+
+  /* Funcion controlador de stock */
+  const itemCantidad =  cart.find( items => items.id === productos.id)
+  let stockActualizado;
+  if(itemCantidad)
+  stockActualizado = productos.cantidad - productos.count;
+  else 
+  stockActualizado = productos.cantidad;
 
   /*----2 Funcion agregar al Carrito----- */
   /*(1)Llamamos a addItem con useContext y le pasamos como parametro el cartContext */
@@ -91,7 +100,7 @@ function ItemDetailContainer() {
               </Link>
               </div> 
               :
-              <ItemCount onAddtoCart={agregarAlCarro}/>
+              <ItemCount cantidad={stockActualizado} onAddtoCart={agregarAlCarro}/>
             }
           </Card.Body>
         </Card>

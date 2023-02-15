@@ -52,7 +52,7 @@ export function CartContextProvider(props){
         resultado = resultado - (resultado * discount / 100);
         return resultado;
     }
-    
+    /*Sumar valor del item */
     
         
     return (

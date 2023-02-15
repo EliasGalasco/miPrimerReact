@@ -3,10 +3,11 @@ import "./itemCount.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
-function ItemCount({onAddtoCart}) {
+function ItemCount({onAddtoCart, cantidad}) {
 const [count, setCount] = useState(1);
 
 function handleAdd() {
+    if(count < cantidad)
     setCount(count + 1);
 }
 
