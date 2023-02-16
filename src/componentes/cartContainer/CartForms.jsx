@@ -5,7 +5,7 @@ import { Button } from "react-bootstrap";
 function InputForm(props) {
 return (
     <div className="d-flex justify-content-center" style={{ display: "flex", marginBottom: 8 }}>
-        <label label className="me-2 fw-bolder" style={{ width: "150px"}}>{props.label}</label>
+        <label className="me-2 fw-bolder" style={{ width: "150px"}}>{props.label}</label>
         <input style={{ width: "550px"}}
         value={props.value}
         name={props.name}
@@ -19,12 +19,12 @@ return (
 export default function CartForm(props) {
   const [userData, setUserData] = useState({
     Nombre: "",
-    Pais: '',
-    Ciudad: '',
+    Pais: "",
+    Ciudad: "",
     Correo: "",
     Telefono: "",
-    Direccion: '',
-    Text: ''
+    Direccion: "",
+    Text: ""
   });
 
 
@@ -71,6 +71,7 @@ export default function CartForm(props) {
             value={userData[field]}
             onInputChange={onInputChange}
             label={field}
+            keys={field.id} 
         />
     ))}
     <div className="d-flex justify-content-center">
@@ -83,7 +84,7 @@ export default function CartForm(props) {
                 userData.Correo !== "" &&
                 userData.Telefono !== "" &&
                 userData.Direccion !== ""&&
-                userData.Text
+                userData.Text !== ""
             )
             }
             type="submit"

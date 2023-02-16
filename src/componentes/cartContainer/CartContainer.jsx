@@ -25,7 +25,7 @@ function CartContainer() {
       buyer: userData,
       items: cart,
       date: new Date(),
-      total: {precioTotal},
+      total: precioTotal(),
     };
     //2Subir a la dataBase
     let idCompra = await creadorOrdenDeCompra(order);
@@ -43,9 +43,6 @@ function CartContainer() {
         clearCart()
     
   }
-  /*Funcion Sumar */
-
-  
   if (cart.length === 0) {
     return (
       <>
@@ -120,9 +117,9 @@ function CartContainer() {
         ))}
         <hr className="container" />
         <div className="d-flex justify-content-around precio">
-        ${Math.round(precioTotal())}
+        Precio total: ${Math.round(precioTotal())}
         </div>
-        <CartForms  onSubmit={finalizarCompra}/>
+        <CartForms onSubmit={finalizarCompra}/>
       </>
     );
   }
