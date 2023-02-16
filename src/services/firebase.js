@@ -43,7 +43,7 @@ export async function getSingleItem(itemid) {
 /*2 Obtener todos los products de fireStore */
 export async function getItems(){
   const productsCollection = collection(db, "productos");
-  const q = query(productsCollection, limit(10))
+  const q = query(productsCollection, limit(22))
   const querySnapshot = await getDocs(q);
   const dataDocs = querySnapshot.docs.map(documento => ({...documento.data(), id: documento.id}))
   return dataDocs
